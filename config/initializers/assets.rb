@@ -16,6 +16,13 @@ Rails.application.config.assets.precompile += %w( animate.min.css )
 Rails.application.config.assets.precompile += %w( owl.carousel.css )
 Rails.application.config.assets.precompile += %w( main.css )
 
+Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( animsition.min.css)
+Rails.application.config.assets.precompile += %w( hamburgers.min.css  )
+Rails.application.config.assets.precompile += %w( perfect-scrollbar.css )
+Rails.application.config.assets.precompile += %w( theme.css )
+
+
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

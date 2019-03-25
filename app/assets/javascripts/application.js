@@ -26,3 +26,9 @@
 //= require waypoints.min.js
 //= require mail-script.js
 //= require main.js
+
+//= require jquery-3.2.1.min.js
+//= require animsition.min.js
+//= require perfect-scrollbar.js
+//= require main.js
+

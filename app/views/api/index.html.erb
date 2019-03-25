@@ -10,6 +10,7 @@
 		<title>AFE</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
 			<%= stylesheet_link_tag "linearicons" %>
 			<%= stylesheet_link_tag "font-awesome.min" %>
 			<%= stylesheet_link_tag "bootstrap" %>
@@ -18,6 +19,9 @@
 			<%= stylesheet_link_tag "animate.min" %>
 			<%= stylesheet_link_tag "owl.carousel" %>
 			<%= stylesheet_link_tag "main" %>
+
+
+
 			
 		<body>	
 			  <header id="header" id="home">
@@ -28,16 +32,15 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="#home">Home</a></li>
-				         
+				          <li><%= link_to "Home", {:action => 'index' }%></li>
 				          <li><a href="#plan">Plan</a></li>
-				          <li><a href="search/search.html">Search</a></li>
+				         
 				          <li><a href="#contact">Contact</a></li>
 				          
 				          
 				            <% if user_signed_in? %>
-				            <li><%= link_to "Dashboard", {:action => 'Dashboard' }%></li>
-							<li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+				            <li><%= link_to "Dashboard", {:action => 'dashboard' }%></li>
+							
 							<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 							<% else %>
 							<li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> 
@@ -78,22 +81,8 @@
 								<p>Select a plan according to your projected usage.</p>
 								<br>
 								<div class="title text-center">
-             					<label>Select list</label>
-             					<select id = "myList">
-            					<div class="title text-center">	
-            						
-   							          <%= count =0 -%>
-    								 <% @Price_infos.each do |c| %>
-    								  
-									  <option value =  <%= count -%>  > <%=  c.api_name -%></option>
-									  <%= count =count+1 -%>
-									   <% end %>
-
-   								
-            					
-            					</div>
-            					</select>
-
+             					<label>Search</label>
+             					
 
 
 
@@ -219,7 +208,7 @@
 				</div>
 			</footer>		
 
-			<script src="js/jquery-2.2.4.min.js"></script>
+			<!-- <script src="js/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="js/bootstrap.min.js"></script>			
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
@@ -233,7 +222,7 @@
 			<script src="js/jquery.counterup.min.js"></script>
 			<script src="js/waypoints.min.js"></script>							
 			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>	 -->
 		</body>
 	</html>
 

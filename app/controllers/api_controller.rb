@@ -14,7 +14,7 @@ class ApiController < ApplicationController
 
 
 	end
-	def Dashboard
+	def dashboard
 		@Info= BillingInfo.where({email: current_user.email})
 	end
 
