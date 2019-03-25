@@ -1,0 +1,241 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="shortcut icon" href="img/fav.png">
+		<meta name="author" content="codepixer">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta charset="UTF-8">
+		<title>AFE</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<%= stylesheet_link_tag "linearicons" %>
+			<%= stylesheet_link_tag "font-awesome.min" %>
+			<%= stylesheet_link_tag "bootstrap" %>
+			<%= stylesheet_link_tag "magnific-popup" %>
+			<%= stylesheet_link_tag "nice-select" %>
+			<%= stylesheet_link_tag "animate.min" %>
+			<%= stylesheet_link_tag "owl.carousel" %>
+			<%= stylesheet_link_tag "main" %>
+			
+		<body>	
+			  <header id="header" id="home">
+			    <div class="container main-menu">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="index.html"><img src="logo.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="#home">Home</a></li>
+				         
+				          <li><a href="#plan">Plan</a></li>
+				          <li><a href="search/search.html">Search</a></li>
+				          <li><a href="#contact">Contact</a></li>
+				          
+				          
+				            <% if user_signed_in? %>
+				            <li><%= link_to "Dashboard", {:action => 'Dashboard' }%></li>
+							<li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> </li>
+							<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+							<% else %>
+							<li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> 
+							<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+							<% end %>
+		        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-start">
+						<div class="banner-content col-lg-8 col-md-12">
+							<h1 class="text-uppercase">
+								We Make <br>
+								API Production <br>
+								More Easier				
+							</h1>
+							<p class="text-white">
+								We help you to integrate your scraper to a generic system <br> and make it available 24/7 in the form of an API.
+							</p>
+						</div>												
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->			
+
+			<!-- Start price Area -->
+			<section class="price-area section-gap" id="plan">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Choose the Perfect Plan for you</h1>
+								<p>Select a plan according to your projected usage.</p>
+								<br>
+								<div class="title text-center">
+             					<label>Select list</label>
+             					<select id = "myList">
+            					<div class="title text-center">	
+            						
+   							          <%= count =0 -%>
+    								 <% @Price_infos.each do |c| %>
+    								  
+									  <option value =  <%= count -%>  > <%=  c.api_name -%></option>
+									  <%= count =count+1 -%>
+									   <% end %>
+
+   								
+            					
+            					</div>
+            					</select>
+
+
+
+
+             					
+            					
+            					</div>
+            					<br>
+
+
+
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-price">
+								<div class="top-sec d-flex justify-content-between">
+									<div class="top-left">
+
+										<h4>Standard</h4>
+										<p>For the <br>individuals</p>
+									</div>
+									<div class="top-right">
+										<h1> 20000</h1>
+									</div>
+								</div>
+								<div class="end-sec">
+									<ul>
+										<li>Upto 50,000 requests</li>
+										<li>10 requests/minute</li>
+
+									<button class="primary-btn price-btn mt-20">Purchase Plan<span class="lnr lnr-arrow-right"></span></button>
+								</div>								
+							</div> 
+						</div>
+						<div class="col-lg-4">
+							<div class="single-price">
+								<div class="top-sec d-flex justify-content-between">
+									<div class="top-left">
+										<h4>Business</h4>
+										<p>For the <br>small Company</p>
+									</div>
+									<div class="top-right">
+										<h1>₹15000</h1>
+									</div>
+								</div>
+								<div class="end-sec">
+									<ul>
+										<li>Upto 100,000 requests</li>
+										<li>20 requests/minute</li>
+									</ul>
+									<button class="primary-btn price-btn mt-20">Purchase Plan<span class="lnr lnr-arrow-right"></span></button>
+								</div>								
+							</div> 
+						</div>	
+						<div class="col-lg-4">
+							<div class="single-price">
+								<div class="top-sec d-flex justify-content-between">
+									<div class="top-left">
+										<h4>Ultimate</h4>
+										<p>For the <br>large Company</p>
+									</div>
+									<div class="top-right">
+										<h1>₹25000</h1>
+									</div>
+								</div>
+								<div class="end-sec">
+									<ul>
+										<li>Upto 10 million requests</li>
+										<li>60 requests/minute</li>
+									</ul>
+									<button class="primary-btn price-btn mt-20">Purchase Plan<span class="lnr lnr-arrow-right"></span></button>
+								</div>								
+							</div> 
+						</div>							
+																						
+					</div>
+				</div>	
+			</section>
+
+			<!-- start contact Area -->		
+			<section class="contact-area section-gap" id="contact">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-30 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Contact Us</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>										
+					<form class="form-area mt-60" id="myForm" action="mail.php" method="post" class="contact-form text-right">
+						<div class="row">	
+						<div class="col-lg-6 form-group">
+							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+						
+							<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+
+							<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+						</div>
+						<div class="col-lg-6 form-group">
+							<textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+							<button class="primary-btn mt-20">Send Message<span class="lnr lnr-arrow-right"></span></button>
+							<div class="mt-10 alert-msg">								
+						</div>
+						</div></div>
+					</form>						
+					
+				</div>	
+			</section>
+			<!-- end contact Area -->	
+	
+
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container" height="10px">
+					<h1 style="color: white; margin-left: 35%;">API FOR EVERYTHING</h1>
+				</div>
+			</footer>		
+
+			<script src="js/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/bootstrap.min.js"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+			<script src="js/owl.carousel.min.js"></script>			
+			<script src="js/jquery.nice-select.min.js"></script>	
+			<script src="js/jquery.counterup.min.js"></script>
+			<script src="js/waypoints.min.js"></script>							
+			<script src="js/mail-script.js"></script>	
+			<script src="js/main.js"></script>	
+		</body>
+	</html>
+
+
+
